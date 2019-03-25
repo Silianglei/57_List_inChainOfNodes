@@ -54,12 +54,8 @@ public class List_inChainOfNodes_recursive{
       @return true, in keeping with conventions yet to be discussed
      */
      public boolean addAsHead( Object val) {
-         // store former headRef
-         Node formerHead = headReference;
-
-         // set new headRef to the param and set its nextRef to the former
-         headReference = new Node( val, formerHead);
-
-         return true;
+       Node newNode = new Node(val, headReference);
+       headReference = newNode;
+        return true;
       }
 }

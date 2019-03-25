@@ -23,10 +23,10 @@ public class List_inChainOfNodes{
      */
      public int size() {
          int size = 0;
-         Node curNode = headReference;
-         while( curNode!= null){
+         Node currentNode = headReference;
+         while( currentNode!= null){
              size++;
-             curNode = curNode.getReferenceToNextNode();
+             currentNode = currentNode.getReferenceToNextNode();
          }
          return size;
      }
@@ -38,13 +38,13 @@ public class List_inChainOfNodes{
            # elements [element0,element1,element2,]
       */
       public String toString() {
-        String result = "[";
-        Node curNode = headReference;
-        for( int el = 0; el < size(); el++){
-            result += curNode.getCargoReference() + ",";
-            curNode = curNode.getReferenceToNextNode();
+        String str = "[";
+        Node currentNode = headReference;
+        for( int i = 0; i < size(); i++){
+            str += currentNode.getCargoReference() + ",";
+            currentNode = currentNode.getReferenceToNextNode();
         }
-        return result += "]";
+        return str += "]";
     }
 
     /**
