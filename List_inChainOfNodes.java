@@ -57,4 +57,58 @@ public class List_inChainOfNodes{
        headReference = newNode;
         return true;
      }
+
+     public boolean add(int index, Object val) {
+       Node currentNode = headReference;
+       for(int i = 0; i < size(); i++) {
+
+         if(i == (index - 1)) {
+           Node newNode = new Node(val, currentNode.getReferenceToNextNode());
+           currentNode.setReferenceToNextNode(newNode);
+         }
+         currentNode = currentNode.getReferenceToNextNode();
+       }
+          return true;
+
+     }
+
+     public Object remove( int index) {
+       Node currentNode = headReference;
+       Object oldValue = "";
+       for(int i = 0; i < size(); i++) {
+
+         if(i == (index - 1)) {
+           oldValue = currentNode.getReferenceToNextNode().getCargoReference();
+           currentNode.setReferenceToNextNode(currentNode.getReferenceToNextNode().getReferenceToNextNode());
+                  }
+         currentNode = currentNode.getReferenceToNextNode();
+       }
+        return oldValue;
+     }
+     public Object set(int index, Object val) {
+       Node currentNode = headReference;
+       Object oldValue = "";
+       for(int i = 0; i < size(); i++) {
+         if(i == index) {
+           oldValue = currentNode.getCargoReference();
+           currentNode.setcargoReference(val);
+                  }
+         currentNode = currentNode.getReferenceToNextNode();
+
+       }
+       return oldValue;
+     }
+
+     public Object get(int index) {
+       Node currentNode = headReference;
+       Object val = "";
+       for(int i = 0; i < size(); i++) {
+         if(i == index) {
+           val = currentNode.getCargoReference();
+                  }
+         currentNode = currentNode.getReferenceToNextNode();
+
+       }
+        return val;
+     }
 }
